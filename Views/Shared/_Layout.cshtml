@@ -9,12 +9,15 @@
 <body class="bg-light">
     <nav class="navbar navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" asp-controller="Home" asp-action="Index">BizSecureDemo_*22180125*</a>
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">BizSecureDemo</a>
             <div class="d-flex gap-2">
                 @if (User.Identity?.IsAuthenticated ?? false)
                 {
                     <a class="btn btn-outline-light btn-sm" asp-controller="Home" asp-action="Index">Landing</a>
-                    <a class="btn btn-outline-light btn-sm" asp-controller="Account" asp-action="Logout">Logout</a>
+                    <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-outline-light btn-sm">Logout</button>
+                    </form>
                 }
                 else
                 {
@@ -23,7 +26,6 @@
             </div>
         </div>
     </nav>
-
     <main class="container py-4">
         <h2 class="mb-3">@ViewData["Title"]</h2>
         @RenderBody()
