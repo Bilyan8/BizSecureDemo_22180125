@@ -1,7 +1,6 @@
 ﻿using BizSecureDemo_22180125.Data;
 using BizSecureDemo_22180125.Models;
 using BizSecureDemo_22180125.ViewModels;
-
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
